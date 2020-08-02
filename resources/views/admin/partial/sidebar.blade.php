@@ -42,15 +42,15 @@
                     </li>
                 @endcan
 {{--                @can('user-management-access')--}}
-                    <li class="sidebar-item">
+                    <li class="sidebar-item {{ Request::is('admin/category*') ? 'active' : '' }} {{ Request::is('admin/category*') ? 'selected' : '' }}">
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                             <i class="fas fa-tags"></i>
                             <span class="hide-menu">Category Management </span>
                         </a>
-                        <ul aria-expanded="false" class="collapse  first-level">
+                        <ul aria-expanded="false" class="collapse  first-level {{ Request::is('admin/category*') ? 'in' : '' }}">
 {{--                            @can('user-access')--}}
-                                <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">
+                                <li class="sidebar-item {{ Request::is('admin/category*') ? 'active' : '' }}">
+                                    <a href="{{ route('admin.category.index') }}" class="sidebar-link">
                                         <span class="hide-menu"> Category </span>
                                     </a>
                                 </li>

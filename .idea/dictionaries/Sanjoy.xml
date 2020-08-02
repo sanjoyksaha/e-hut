@@ -2,16 +2,19 @@
   <dictionary name="Sanjoy">
     <words>
       <w>autosizing</w>
+      <w>childsubcategory</w>
       <w>colvis</w>
       <w>csrf</w>
       <w>enderror</w>
       <w>fillable</w>
+      <w>mens</w>
       <w>navbar</w>
       <w>sidebarmenu</w>
       <w>sidebartoggler</w>
       <w>toggler</w>
       <w>topbar</w>
       <w>topbartoggler</w>
+      <w>womens</w>
     </words>
   </dictionary>
 </component>

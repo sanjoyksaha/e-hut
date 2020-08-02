@@ -15,6 +15,10 @@ class CreateChildSubCategoriesTable extends Migration
     {
         Schema::create('child_sub_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug');
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

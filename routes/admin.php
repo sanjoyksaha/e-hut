@@ -24,5 +24,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin',  'namespace' => 'Admin'], f
         // Routes for Permissions
         Route::resource('/permission', 'PermissionController');
         Route::DELETE('/permission-massDelete', 'PermissionController@massDelete');
+
+        // Routes for Categories
+        Route::resource('/category', 'CategoryController');
     });
 });

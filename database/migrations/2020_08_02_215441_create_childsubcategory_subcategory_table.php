@@ -15,6 +15,8 @@ class CreateChildsubcategorySubcategoryTable extends Migration
     {
         Schema::create('childsubcategory_subcategory', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('childsubcategory_id');
+            $table->unsignedBigInteger('subcategory_id');
             $table->timestamps();
         });
     }
