@@ -8,18 +8,53 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+
     <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Bootstrap Datatables Buttons css -->
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.bootstrap4.min.css">
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="{{ asset('backend/plugins/select2/select2.min.css') }}">
     <!-- Custom CSS -->
     <link href="{{ asset('backend/css/style.min.css') }}" rel="stylesheet">
     @stack('css')
     <style>
+        /*datatable style*/
         .sidebar-nav ul .sidebar-item .first-level .sidebar-link{
             margin-left: 40px;
+        }
+        .custom_datatable table thead th {
+            border-bottom: 1px solid #dee2e6;
+        }
+        table.dataTable.no-footer {
+             border-bottom:  1px solid #dee2e6 !important;
+        }
+        .custom_datatable .dt-buttons.btn-group{
+            position: absolute !important;
+            left: 50% !important;
+            width: 100% !important;
+        }
+        .custom_datatable .dt-buttons.btn-group .btn.btn-secondary{
+            font-size: 14px;
+            text-align: center !important;
+            padding: 4px 15px;
+            border: 1px solid #fff;
+        }
+        .dataTables_wrapper .dataTables_paginate .paginate_button{
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+        .paginate_button:hover{
+            background: none !important;
+            border: none !important;
+        }
+
+        /*badge button style*/
+        button.btn-badge{
+            border: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -51,6 +86,7 @@
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.colVis.min.js"></script>
+<script src="{{ asset('backend/plugins/select2/select2.min.js') }}"></script>
 <!--Custom JavaScript -->
 <script src="{{ asset('backend/js/custom.min.js')}}"></script>
 @stack('scripts')
@@ -58,9 +94,9 @@
     //Datatables Buttons
     $(document).ready(function() {
         let table = $('#data_table').DataTable( {
-            lengthChange: false,
-            pageLength: 10,
-            buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print', 'colvis' ]
+            lengthChange: true,
+            lengthMenu:[[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+            buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print' ]
         } );
 
         table.buttons().container()
@@ -73,6 +109,31 @@
             $('.all_check').prop('checked', this.checked);
         });
     });
+
+    // Multiple Items Select2 Plugin Code
+    $(document).ready(function() {
+        $('.select2').select2({
+            placeholder: "Please Select An Item",
+            searchable: true,
+        });
+    });
+
+    // Select2 Select all
+    // $(document).ready(function () {
+    //     $('.select-all').click(function () {
+    //         let $select2 = $(this).parent().siblings('.select2');
+    //         $select2.find('option').prop('selected', 'selected');
+    //         $select2.trigger('change');
+    //     });
+    //
+    //     // Select2 deselect all
+    //     $('.deselect-all').click(function () {
+    //         let $select2 = $(this).parent().siblings('.select-multiple');
+    //         $select2.find('option').prop('selected', '');
+    //         $select2.trigger('change');
+    //     });
+    // });
+
 </script>
 </body>
 </html>

@@ -4,10 +4,7 @@
 
 @push('css')
     <style>
-        button.btn-badge{
-            border: none;
-            cursor: pointer;
-        }
+
     </style>
 @endpush
 
@@ -47,7 +44,7 @@
                             <button class="btn btn-danger btn-sm float-right" id="massDelete">Delete Selected</button>
                         @endcan
                     </div>
-                    <div class="card-body">
+                    <div class="card-body custom_datatable">
                         <table class="table table-bordered table-responsive-md" id="data_table">
                             <thead>
                             <tr>

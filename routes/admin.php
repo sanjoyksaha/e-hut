@@ -27,5 +27,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin',  'namespace' => 'Admin'], f
 
         // Routes for Categories
         Route::resource('/category', 'CategoryController');
+        Route::DELETE('/category-massDelete', 'CategoryController@massDelete');
+        Route::post('/category/active/{category}', 'CategoryController@categoryActive')->name('category.active');
+        Route::post('/category/inactive/{category}', 'CategoryController@categoryInactive')->name('category.inactive');
     });
 });

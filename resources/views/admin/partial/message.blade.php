@@ -7,6 +7,15 @@
     </div>
 @endif
 
+@if(session('error'))
+    <div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times
+            <i class="fas fa-time"></i>
+        </a>
+        <span><strong>{{ session('error') }}</strong></span>
+    </div>
+@endif
+
 @if($errors->any())
     @foreach($errors->all() as $error)
         <div class="alert alert-danger">

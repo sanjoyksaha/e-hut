@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChildSubCategory extends Model
 {
-    protected $fillable =['name', 'slug', 'description', 'image'];
+    protected $fillable =['name', 'slug', 'description', 'image', 'status'];
 
     public $timestamps = true;
 
-    protected $with = ['subCategories'];
+//    protected $with = ['subCategories'];
 
     public function getRouteKeyName()
     {

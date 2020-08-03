@@ -41,20 +41,20 @@
                         </ul>
                     </li>
                 @endcan
-{{--                @can('user-management-access')--}}
+                @can('category-management-access')
                     <li class="sidebar-item {{ Request::is('admin/category*') ? 'active' : '' }} {{ Request::is('admin/category*') ? 'selected' : '' }}">
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                             <i class="fas fa-tags"></i>
                             <span class="hide-menu">Category Management </span>
                         </a>
                         <ul aria-expanded="false" class="collapse  first-level {{ Request::is('admin/category*') ? 'in' : '' }}">
-{{--                            @can('user-access')--}}
+                            @can('category-access')
                                 <li class="sidebar-item {{ Request::is('admin/category*') ? 'active' : '' }}">
                                     <a href="{{ route('admin.category.index') }}" class="sidebar-link">
                                         <span class="hide-menu"> Category </span>
                                     </a>
                                 </li>
-{{--                            @endcan--}}
+                            @endcan
 {{--                            @can('role-access')--}}
                                 <li class="sidebar-item ">
                                     <a href="#" class="sidebar-link">
@@ -71,7 +71,7 @@
 {{--                            @endcan--}}
                         </ul>
                     </li>
-{{--                @endcan--}}
+                @endcan
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
