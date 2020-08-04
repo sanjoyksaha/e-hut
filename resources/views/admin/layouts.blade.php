@@ -32,14 +32,17 @@
         }
         .custom_datatable .dt-buttons.btn-group{
             position: absolute !important;
-            left: 50% !important;
+            left: 55% !important;
             width: 100% !important;
         }
         .custom_datatable .dt-buttons.btn-group .btn.btn-secondary{
-            font-size: 14px;
+            font-size: 0.76563rem;
+            color: #fff;
             text-align: center !important;
             padding: 4px 15px;
             border: 1px solid #fff;
+            background: #6b09a9;
+            font-family: "Nunito Sans", sans-serif;
         }
         .dataTables_wrapper .dataTables_paginate .paginate_button{
             margin: 0 !important;
@@ -55,6 +58,14 @@
         button.btn-badge{
             border: none;
             cursor: pointer;
+        }
+    /*    Select2 style*/
+        .select2-container--default.select2-container--focus .select2-selection--multiple{
+            height: auto;
+        }
+
+        .select2-container{
+            vertical-align: initial;
         }
     </style>
 </head>

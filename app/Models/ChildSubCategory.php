@@ -10,8 +10,6 @@ class ChildSubCategory extends Model
 
     public $timestamps = true;
 
-//    protected $with = ['subCategories'];
-
     public function getRouteKeyName()
     {
         return 'slug';
@@ -19,6 +17,6 @@ class ChildSubCategory extends Model
 
     public function subCategories()
     {
-        return $this->belongsToMany(SubCategory::class);
+        return $this->belongsToMany(SubCategory::class)->withTimestamps();
     }
 }

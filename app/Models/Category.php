@@ -21,7 +21,7 @@ class Category extends Model
     }
     public function subCategories()
     {
-        return $this->belongsToMany(SubCategory::class);
+        return $this->belongsToMany(SubCategory::class)->withTimestamps();
     }
 
     protected function setNameAttribute($value)
