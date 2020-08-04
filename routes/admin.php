@@ -36,5 +36,11 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin',  'namespace' => 'Admin'], f
         Route::DELETE('/sub-category-massDelete', 'SubCategoryController@massDelete');
         Route::post('/sub-category/active/{sub_category}', 'SubCategoryController@subcategoryActive')->name('subcategory.active');
         Route::post('/sub-category/inactive/{sub_category}', 'SubCategoryController@subcategoryInactive')->name('subcategory.inactive');
+
+        // Routes for Child Sub-Category
+        Route::resource('child-sub-category', 'ChildSubCategoryController');
+        Route::DELETE('/child-sub-category-massDelete', 'ChildSubCategoryController@massDelete');
+        Route::post('/child-sub-category/active/{child_sub_category}', 'ChildSubCategoryController@active')->name('childsubcategory.active');
+        Route::post('/child-sub-category/inactive/{child_sub_category}', 'ChildSubCategoryController@inactive')->name('childsubcategory.inactive');
     });
 });

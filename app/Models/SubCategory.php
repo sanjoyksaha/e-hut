@@ -47,10 +47,10 @@ class SubCategory extends Model
         }
     }
 
-    protected static function deleteImage($category)
+    protected static function deleteImage($sub_category)
     {
-        if(file_exists('storage/media/sub-category/'.$category->image)) {
-            Storage::delete('/public/media/sub-category/' . $category->image);
+        if(file_exists('storage/media/sub-category/'.$sub_category->image)) {
+            Storage::delete('/public/media/sub-category/' . $sub_category->image);
         }
     }
 }
