@@ -42,5 +42,17 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin',  'namespace' => 'Admin'], f
         Route::DELETE('/child-sub-category-massDelete', 'ChildSubCategoryController@massDelete');
         Route::post('/child-sub-category/active/{child_sub_category}', 'ChildSubCategoryController@active')->name('childsubcategory.active');
         Route::post('/child-sub-category/inactive/{child_sub_category}', 'ChildSubCategoryController@inactive')->name('childsubcategory.inactive');
+
+        // Routes for Brand
+        Route::resource('/brand', 'BrandController');
+        Route::DELETE('/brand-massDelete', 'BrandController@massDelete');
+        Route::post('/brand/active/{brand}', 'BrandController@active')->name('brand.active');
+        Route::post('/brand/inactive/{brand}', 'BrandController@inactive')->name('brand.inactive');
+
+        // Routes for Supplier
+        Route::resource('/supplier', 'SupplierController');
+        Route::DELETE('/supplier-massDelete', 'SupplierController@massDelete');
+        Route::post('/supplier/active/{supplier}', 'SupplierController@active')->name('supplier.active');
+        Route::post('/supplier/inactive/{supplier}', 'SupplierController@inactive')->name('supplier.inactive');
     });
 });

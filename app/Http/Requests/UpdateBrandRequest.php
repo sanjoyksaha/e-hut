@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
+use Symfony\Component\HttpFoundation\Response;
 
 class UpdateBrandRequest extends FormRequest
 {
@@ -13,7 +16,8 @@ class UpdateBrandRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        abort_if(Gate::denies('brand-edit'), Response::HTTP_FORBIDDEN);
+        return true;
     }
 
     /**
@@ -24,7 +28,18 @@ class UpdateBrandRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'email' => Rule::unique('brands')->ignore($this->brand),
+            'status' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Brand name is required.',
+            'email.unique' => 'This email is already exists.',
+            'status.required' => 'Status is required',
         ];
     }
 }

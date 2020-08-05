@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class SupplierRequest extends FormRequest
 {
@@ -13,7 +15,8 @@ class SupplierRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        abort_if(Gate::denies('supplier-create'), Response::HTTP_FORBIDDEN);
+        return true;
     }
 
     /**
@@ -24,7 +27,18 @@ class SupplierRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'email' => 'unique:brands',
+            'status' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Supplier name is required.',
+            'email.unique' => 'This email is already exists.',
+            'status.required' => 'Status is required',
         ];
     }
 }

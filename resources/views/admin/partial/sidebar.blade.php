@@ -10,6 +10,7 @@
                         <span class="hide-menu">Dashboard</span>
                     </a>
                 </li>
+{{--                User Management Start--}}
                 @can('user-management-access')
                     <li class="sidebar-item {{ Request::is('admin/admin_users*') ? 'active' : '' }}{{ Request::is('admin/role*') ? 'active' : '' }}{{ Request::is('admin/permission*') ? 'active' : '' }} {{ Request::is('admin/admin_users*') ? 'selected' : '' }}{{ Request::is('admin/role*') ? 'selected' : '' }}{{ Request::is('admin/permission*') ? 'selected' : '' }}">
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
@@ -41,6 +42,8 @@
                         </ul>
                     </li>
                 @endcan
+{{--                User Management End--}}
+{{--                Category Management Start--}}
                 @can('category-management-access')
                     <li class="sidebar-item {{ Request::is('admin/category*') ? 'active' : '' }}{{ Request::is('admin/sub-category*') ? 'active' : '' }}{{ Request::is('admin/child-sub-category*') ? 'active' : '' }} {{ Request::is('admin/category*') ? 'selected' : '' }}{{ Request::is('admin/sub-category*') ? 'selected' : '' }}{{ Request::is('admin/child-sub-category*') ? 'selected' : '' }}">
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
@@ -72,6 +75,27 @@
                         </ul>
                     </li>
                 @endcan
+{{--                Category Management End--}}
+{{--                Brand Start--}}
+                @can('brand-access')
+                    <li class="sidebar-item {{ Request::is('admin/brand*') ? 'active' : '' }} {{ Request::is('admin/brand*') ? 'selected' : '' }}">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.brand.index') }}" aria-expanded="false">
+                            <i class="mdi mdi-view-dashboard"></i>
+                            <span class="hide-menu">Brand</span>
+                        </a>
+                    </li>
+                @endcan
+{{--                Brand End--}}
+{{--                Supplier Start--}}
+                @can('supplier-access')
+                    <li class="sidebar-item {{ Request::is('admin/supplier*') ? 'active' : '' }} {{ Request::is('admin/supplier*') ? 'selected' : '' }}">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.supplier.index') }}" aria-expanded="false">
+                            <i class="mdi mdi-view-dashboard"></i>
+                            <span class="hide-menu">Supplier</span>
+                        </a>
+                    </li>
+                @endcan
+{{--                Supplier End--}}
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
