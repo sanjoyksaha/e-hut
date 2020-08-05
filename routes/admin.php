@@ -54,5 +54,17 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin',  'namespace' => 'Admin'], f
         Route::DELETE('/supplier-massDelete', 'SupplierController@massDelete');
         Route::post('/supplier/active/{supplier}', 'SupplierController@active')->name('supplier.active');
         Route::post('/supplier/inactive/{supplier}', 'SupplierController@inactive')->name('supplier.inactive');
+
+        // Routes for Size
+        Route::resource('/size', 'SizeController');
+        Route::DELETE('/size-massDelete', 'SizeController@massDelete');
+
+        // Route for Color
+        Route::resource('/color', 'ColorController');
+        Route::DELETE('/color-massDelete', 'ColorController@massDelete');
+
+        // Route for Color
+        Route::resource('/unit', 'UnitController');
+        Route::DELETE('/unit-massDelete', 'UnitController@massDelete');
     });
 });

@@ -90,12 +90,43 @@
                 @can('supplier-access')
                     <li class="sidebar-item {{ Request::is('admin/supplier*') ? 'active' : '' }} {{ Request::is('admin/supplier*') ? 'selected' : '' }}">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.supplier.index') }}" aria-expanded="false">
-                            <i class="mdi mdi-view-dashboard"></i>
+                            <i class="mdi mdi-truck-delivery"></i>
                             <span class="hide-menu">Supplier</span>
                         </a>
                     </li>
                 @endcan
 {{--                Supplier End--}}
+{{--                Settings Management Start--}}
+                <li class="sidebar-item {{ Request::is('admin/size*') ? 'active' : '' }}{{ Request::is('admin/color*') ? 'active' : '' }}{{ Request::is('admin/unit*') ? 'active' : '' }} {{ Request::is('admin/size*') ? 'selected' : '' }}{{ Request::is('admin/color*') ? 'selected' : '' }}{{ Request::is('admin/unit*') ? 'selected' : '' }}">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="mdi mdi-settings"></i>
+                        <span class="hide-menu">Settings </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse  first-level {{ Request::is('admin/size*') ? 'in' : '' }}{{ Request::is('admin/color*') ? 'in' : '' }}{{ Request::is('admin/unit*') ? 'in' : '' }}">
+                        @can('size-access')
+                            <li class="sidebar-item {{ Request::is('admin/size*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.size.index') }}" class="sidebar-link">
+                                    <span class="hide-menu">Size</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('color-access')
+                            <li class="sidebar-item {{ Request::is('admin/color*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.color.index') }}" class="sidebar-link">
+                                    <span class="hide-menu">Color</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('unit-access')
+                            <li class="sidebar-item {{ Request::is('admin/unit*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.unit.index') }}" class="sidebar-link">
+                                    <span class="hide-menu">Unit</span>
+                                </a>
+                            </li>
+                        @endcan
+                    </ul>
+                </li>
+{{--                Settings Management End--}}
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

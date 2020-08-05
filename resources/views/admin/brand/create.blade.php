@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="border-top">
                                     <div class="mt-2 offset-3">
-                                        <a href="{{ route('admin.supplier.index') }}" class="btn btn-warning text-dark">Back</a>
+                                        <a href="{{ route('admin.brand.index') }}" class="btn btn-warning text-dark">Back</a>
                                         <button type="submit" class="btn btn-success">Add</button>
                                     </div>
                                 </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 04, 2020 at 06:53 PM
+-- Generation Time: Aug 05, 2020 at 06:18 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.32
 
@@ -69,9 +69,39 @@ CREATE TABLE `admin_role` (
 
 INSERT INTO `admin_role` (`id`, `admin_id`, `role_id`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, '2020-07-30 08:07:39', '2020-07-30 08:07:39'),
-(3, 2, 2, '2020-07-30 08:12:12', '2020-07-30 08:12:12'),
 (4, 3, 5, '2020-07-30 08:27:57', '2020-07-30 08:27:57'),
-(5, 4, 4, '2020-07-30 08:29:15', '2020-07-30 08:29:15');
+(5, 4, 4, '2020-07-30 08:29:15', '2020-07-30 08:29:15'),
+(7, 2, 2, '2020-08-05 07:12:57', '2020-08-05 07:12:57');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brands`
+--
+
+CREATE TABLE `brands` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `website` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `brands`
+--
+
+INSERT INTO `brands` (`id`, `name`, `slug`, `email`, `website`, `phone_no`, `address`, `image`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Cassidy Aguirr', 'cassidy-aguirr', 'buwiz@mailinator.com', 'https://www.dytywywugyho.cm', '+1 (471) 131-4108', 'Cumque quidem saepe', '05082020040842.png', 1, '2020-08-05 08:06:05', '2020-08-05 10:08:42'),
+(5, 'Imelda Thomas', 'imelda-thomas', 'quhumexal@mailinator.com', 'https://www.risymidunytoc.ca', '+1 (375) 188-2469', 'Aliquam quia laborum', '05082020041605.png', 1, '2020-08-05 10:16:06', '2020-08-05 10:16:06'),
+(6, 'Marcia Rowland', 'marcia-rowland', 'nani@mailinator.com', 'https://www.luzuwyhisakyt.biz', '+1 (702) 789-2287', 'Ut voluptate laborio', '05082020041624.jpg', 0, '2020-08-05 10:16:24', '2020-08-05 10:32:39'),
+(7, 'Denton Cruz', 'denton-cruz', 'tuduwise@mailinator.com', 'https://www.haposeman.net', '+1 (789) 645-5833', 'Minus laboriosam in', '05082020041643.png', 0, '2020-08-05 10:16:43', '2020-08-05 10:32:57');
 
 -- --------------------------------------------------------
 
@@ -210,6 +240,34 @@ INSERT INTO `child_sub_category_sub_category` (`id`, `sub_category_id`, `child_s
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `colors`
+--
+
+CREATE TABLE `colors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `colors`
+--
+
+INSERT INTO `colors` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 'Black', 'black', '2020-08-05 17:46:11', '2020-08-05 17:46:11'),
+(2, 'Green', 'green', '2020-08-05 17:46:18', '2020-08-05 17:46:32'),
+(3, 'Red', 'red', '2020-08-05 17:46:25', '2020-08-05 17:46:25'),
+(4, 'Yellow', 'yellow', '2020-08-05 17:46:39', '2020-08-05 17:46:39'),
+(5, 'Pink', 'pink', '2020-08-05 17:46:46', '2020-08-05 17:46:46'),
+(6, 'Light Blue', 'light-blue', '2020-08-05 17:46:55', '2020-08-05 17:46:55'),
+(7, 'Deep Blue', 'deep-blue', '2020-08-05 17:47:02', '2020-08-05 17:47:02'),
+(8, 'Neavy Blue', 'neavy-blue', '2020-08-05 17:47:11', '2020-08-05 17:47:11');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -251,7 +309,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2020_07_30_205627_create_sub_categories_table', 2),
 (17, '2020_08_02_215307_create_child_sub_categories_table', 2),
 (21, '2020_08_03_173841_create_category_sub_category_table', 3),
-(22, '2020_08_04_155713_create_child_sub_category_sub_category_table', 4);
+(22, '2020_08_04_155713_create_child_sub_category_sub_category_table', 4),
+(25, '2020_08_05_005519_create_brands_table', 5),
+(26, '2020_08_05_005552_create_suppliers_table', 5),
+(27, '2020_08_05_195006_create_sizes_table', 6),
+(28, '2020_08_05_195040_create_colors_table', 6),
+(29, '2020_08_05_234803_create_units_table', 7);
 
 -- --------------------------------------------------------
 
@@ -309,7 +372,27 @@ INSERT INTO `permissions` (`id`, `title`, `slug`, `created_at`, `updated_at`) VA
 (23, 'ChildSubCategory Access', 'childsubcategory-access', '2020-08-04 15:34:49', '2020-08-04 15:35:10'),
 (24, 'ChildSubCategory Create', 'childsubcategory-create', '2020-08-04 15:35:01', '2020-08-04 15:35:20'),
 (25, 'ChildSubCategory Edit', 'childsubcategory-edit', '2020-08-04 15:35:33', '2020-08-04 15:35:33'),
-(26, 'ChildSubCategory Delete', 'childsubcategory-delete', '2020-08-04 15:35:50', '2020-08-04 15:35:50');
+(26, 'ChildSubCategory Delete', 'childsubcategory-delete', '2020-08-04 15:35:50', '2020-08-04 15:35:50'),
+(27, 'Brand Access', 'brand-access', '2020-08-05 07:38:08', '2020-08-05 07:38:08'),
+(28, 'Brand Create', 'brand-create', '2020-08-05 07:38:22', '2020-08-05 07:38:22'),
+(29, 'Brand Edit', 'brand-edit', '2020-08-05 07:38:34', '2020-08-05 07:38:34'),
+(30, 'Brand Delete', 'brand-delete', '2020-08-05 07:38:46', '2020-08-05 07:38:46'),
+(31, 'Supplier Access', 'supplier-access', '2020-08-05 10:55:54', '2020-08-05 10:55:54'),
+(32, 'Supplier Create', 'supplier-create', '2020-08-05 10:56:06', '2020-08-05 10:56:06'),
+(33, 'Supplier Edit', 'supplier-edit', '2020-08-05 10:56:18', '2020-08-05 10:56:18'),
+(34, 'Supplier Delete', 'supplier-delete', '2020-08-05 10:56:33', '2020-08-05 10:56:33'),
+(35, 'Size Access', 'size-access', '2020-08-05 17:11:38', '2020-08-05 17:11:38'),
+(36, 'Size Create', 'size-create', '2020-08-05 17:11:47', '2020-08-05 17:11:47'),
+(37, 'Size Edit', 'size-edit', '2020-08-05 17:11:55', '2020-08-05 17:11:55'),
+(38, 'Size Delete', 'size-delete', '2020-08-05 17:12:03', '2020-08-05 17:12:03'),
+(39, 'Color Access', 'color-access', '2020-08-05 17:37:36', '2020-08-05 17:37:36'),
+(40, 'Color Create', 'color-create', '2020-08-05 17:37:45', '2020-08-05 17:37:45'),
+(41, 'Color Edit', 'color-edit', '2020-08-05 17:37:55', '2020-08-05 17:37:55'),
+(42, 'Color Delete', 'color-delete', '2020-08-05 17:38:06', '2020-08-05 17:38:06'),
+(43, 'Unit Access', 'unit-access', '2020-08-05 17:52:42', '2020-08-05 17:52:42'),
+(44, 'Unit Create', 'unit-create', '2020-08-05 17:52:51', '2020-08-05 17:52:51'),
+(45, 'Unit Edit', 'unit-edit', '2020-08-05 17:53:00', '2020-08-05 17:53:00'),
+(46, 'Unit Delete', 'unit-delete', '2020-08-05 17:53:08', '2020-08-05 17:53:08');
 
 -- --------------------------------------------------------
 
@@ -420,7 +503,107 @@ INSERT INTO `permission_role` (`id`, `permission_id`, `role_id`, `created_at`, `
 (101, 23, 5, '2020-08-04 15:45:00', '2020-08-04 15:45:00'),
 (102, 24, 5, '2020-08-04 15:45:00', '2020-08-04 15:45:00'),
 (103, 25, 5, '2020-08-04 15:45:00', '2020-08-04 15:45:00'),
-(104, 26, 5, '2020-08-04 15:45:00', '2020-08-04 15:45:00');
+(104, 26, 5, '2020-08-04 15:45:00', '2020-08-04 15:45:00'),
+(105, 27, 1, '2020-08-05 07:39:02', '2020-08-05 07:39:02'),
+(106, 28, 1, '2020-08-05 07:39:02', '2020-08-05 07:39:02'),
+(107, 29, 1, '2020-08-05 07:39:02', '2020-08-05 07:39:02'),
+(108, 30, 1, '2020-08-05 07:39:02', '2020-08-05 07:39:02'),
+(109, 27, 2, '2020-08-05 07:39:09', '2020-08-05 07:39:09'),
+(110, 28, 2, '2020-08-05 07:39:09', '2020-08-05 07:39:09'),
+(111, 29, 2, '2020-08-05 07:39:09', '2020-08-05 07:39:09'),
+(112, 30, 2, '2020-08-05 07:39:09', '2020-08-05 07:39:09'),
+(113, 27, 3, '2020-08-05 07:39:19', '2020-08-05 07:39:19'),
+(114, 28, 3, '2020-08-05 07:39:19', '2020-08-05 07:39:19'),
+(115, 29, 3, '2020-08-05 07:39:19', '2020-08-05 07:39:19'),
+(116, 30, 3, '2020-08-05 07:39:20', '2020-08-05 07:39:20'),
+(117, 27, 4, '2020-08-05 07:39:29', '2020-08-05 07:39:29'),
+(118, 28, 4, '2020-08-05 07:39:30', '2020-08-05 07:39:30'),
+(119, 29, 4, '2020-08-05 07:39:30', '2020-08-05 07:39:30'),
+(120, 30, 4, '2020-08-05 07:39:30', '2020-08-05 07:39:30'),
+(121, 27, 5, '2020-08-05 07:39:39', '2020-08-05 07:39:39'),
+(122, 28, 5, '2020-08-05 07:39:39', '2020-08-05 07:39:39'),
+(123, 29, 5, '2020-08-05 07:39:39', '2020-08-05 07:39:39'),
+(124, 30, 5, '2020-08-05 07:39:39', '2020-08-05 07:39:39'),
+(125, 31, 1, '2020-08-05 10:57:53', '2020-08-05 10:57:53'),
+(126, 32, 1, '2020-08-05 10:57:53', '2020-08-05 10:57:53'),
+(127, 33, 1, '2020-08-05 10:57:53', '2020-08-05 10:57:53'),
+(128, 34, 1, '2020-08-05 10:57:53', '2020-08-05 10:57:53'),
+(129, 31, 2, '2020-08-05 10:58:00', '2020-08-05 10:58:00'),
+(130, 32, 2, '2020-08-05 10:58:00', '2020-08-05 10:58:00'),
+(131, 33, 2, '2020-08-05 10:58:00', '2020-08-05 10:58:00'),
+(132, 34, 2, '2020-08-05 10:58:00', '2020-08-05 10:58:00'),
+(133, 31, 3, '2020-08-05 10:58:10', '2020-08-05 10:58:10'),
+(134, 32, 3, '2020-08-05 10:58:10', '2020-08-05 10:58:10'),
+(135, 33, 3, '2020-08-05 10:58:10', '2020-08-05 10:58:10'),
+(136, 34, 3, '2020-08-05 10:58:11', '2020-08-05 10:58:11'),
+(137, 31, 4, '2020-08-05 10:58:20', '2020-08-05 10:58:20'),
+(138, 32, 4, '2020-08-05 10:58:20', '2020-08-05 10:58:20'),
+(139, 33, 4, '2020-08-05 10:58:20', '2020-08-05 10:58:20'),
+(140, 34, 4, '2020-08-05 10:58:20', '2020-08-05 10:58:20'),
+(141, 31, 5, '2020-08-05 10:58:30', '2020-08-05 10:58:30'),
+(142, 32, 5, '2020-08-05 10:58:30', '2020-08-05 10:58:30'),
+(143, 33, 5, '2020-08-05 10:58:30', '2020-08-05 10:58:30'),
+(144, 34, 5, '2020-08-05 10:58:30', '2020-08-05 10:58:30'),
+(145, 35, 1, '2020-08-05 17:12:17', '2020-08-05 17:12:17'),
+(146, 36, 1, '2020-08-05 17:12:17', '2020-08-05 17:12:17'),
+(147, 37, 1, '2020-08-05 17:12:17', '2020-08-05 17:12:17'),
+(148, 38, 1, '2020-08-05 17:12:17', '2020-08-05 17:12:17'),
+(149, 35, 2, '2020-08-05 17:12:27', '2020-08-05 17:12:27'),
+(150, 36, 2, '2020-08-05 17:12:27', '2020-08-05 17:12:27'),
+(151, 37, 2, '2020-08-05 17:12:27', '2020-08-05 17:12:27'),
+(152, 38, 2, '2020-08-05 17:12:27', '2020-08-05 17:12:27'),
+(153, 35, 3, '2020-08-05 17:12:37', '2020-08-05 17:12:37'),
+(154, 36, 3, '2020-08-05 17:12:38', '2020-08-05 17:12:38'),
+(155, 37, 3, '2020-08-05 17:12:38', '2020-08-05 17:12:38'),
+(156, 38, 3, '2020-08-05 17:12:38', '2020-08-05 17:12:38'),
+(157, 35, 4, '2020-08-05 17:12:50', '2020-08-05 17:12:50'),
+(158, 36, 4, '2020-08-05 17:12:50', '2020-08-05 17:12:50'),
+(159, 37, 4, '2020-08-05 17:12:50', '2020-08-05 17:12:50'),
+(160, 38, 4, '2020-08-05 17:12:50', '2020-08-05 17:12:50'),
+(161, 35, 5, '2020-08-05 17:13:08', '2020-08-05 17:13:08'),
+(162, 36, 5, '2020-08-05 17:13:08', '2020-08-05 17:13:08'),
+(163, 37, 5, '2020-08-05 17:13:08', '2020-08-05 17:13:08'),
+(164, 38, 5, '2020-08-05 17:13:08', '2020-08-05 17:13:08'),
+(165, 39, 1, '2020-08-05 17:38:27', '2020-08-05 17:38:27'),
+(166, 40, 1, '2020-08-05 17:38:27', '2020-08-05 17:38:27'),
+(167, 41, 1, '2020-08-05 17:38:27', '2020-08-05 17:38:27'),
+(168, 42, 1, '2020-08-05 17:38:27', '2020-08-05 17:38:27'),
+(169, 39, 2, '2020-08-05 17:38:35', '2020-08-05 17:38:35'),
+(170, 40, 2, '2020-08-05 17:38:35', '2020-08-05 17:38:35'),
+(171, 41, 2, '2020-08-05 17:38:35', '2020-08-05 17:38:35'),
+(172, 42, 2, '2020-08-05 17:38:35', '2020-08-05 17:38:35'),
+(173, 39, 3, '2020-08-05 17:38:45', '2020-08-05 17:38:45'),
+(174, 40, 3, '2020-08-05 17:38:45', '2020-08-05 17:38:45'),
+(175, 41, 3, '2020-08-05 17:38:45', '2020-08-05 17:38:45'),
+(176, 42, 3, '2020-08-05 17:38:45', '2020-08-05 17:38:45'),
+(177, 39, 4, '2020-08-05 17:39:00', '2020-08-05 17:39:00'),
+(178, 40, 4, '2020-08-05 17:39:00', '2020-08-05 17:39:00'),
+(179, 41, 4, '2020-08-05 17:39:00', '2020-08-05 17:39:00'),
+(180, 42, 4, '2020-08-05 17:39:00', '2020-08-05 17:39:00'),
+(181, 39, 5, '2020-08-05 17:39:10', '2020-08-05 17:39:10'),
+(182, 40, 5, '2020-08-05 17:39:10', '2020-08-05 17:39:10'),
+(183, 41, 5, '2020-08-05 17:39:10', '2020-08-05 17:39:10'),
+(184, 42, 5, '2020-08-05 17:39:10', '2020-08-05 17:39:10'),
+(185, 43, 1, '2020-08-05 17:55:04', '2020-08-05 17:55:04'),
+(186, 44, 1, '2020-08-05 17:55:04', '2020-08-05 17:55:04'),
+(187, 45, 1, '2020-08-05 17:55:04', '2020-08-05 17:55:04'),
+(188, 46, 1, '2020-08-05 17:55:04', '2020-08-05 17:55:04'),
+(189, 43, 2, '2020-08-05 17:55:12', '2020-08-05 17:55:12'),
+(190, 44, 2, '2020-08-05 17:55:12', '2020-08-05 17:55:12'),
+(191, 45, 2, '2020-08-05 17:55:12', '2020-08-05 17:55:12'),
+(192, 46, 2, '2020-08-05 17:55:12', '2020-08-05 17:55:12'),
+(193, 43, 3, '2020-08-05 17:55:22', '2020-08-05 17:55:22'),
+(194, 44, 3, '2020-08-05 17:55:22', '2020-08-05 17:55:22'),
+(195, 45, 3, '2020-08-05 17:55:22', '2020-08-05 17:55:22'),
+(196, 46, 3, '2020-08-05 17:55:22', '2020-08-05 17:55:22'),
+(197, 43, 4, '2020-08-05 17:55:39', '2020-08-05 17:55:39'),
+(198, 44, 4, '2020-08-05 17:55:39', '2020-08-05 17:55:39'),
+(199, 45, 4, '2020-08-05 17:55:39', '2020-08-05 17:55:39'),
+(200, 46, 4, '2020-08-05 17:55:39', '2020-08-05 17:55:39'),
+(201, 43, 5, '2020-08-05 17:55:50', '2020-08-05 17:55:50'),
+(202, 44, 5, '2020-08-05 17:55:51', '2020-08-05 17:55:51'),
+(203, 45, 5, '2020-08-05 17:55:51', '2020-08-05 17:55:51'),
+(204, 46, 5, '2020-08-05 17:55:51', '2020-08-05 17:55:51');
 
 -- --------------------------------------------------------
 
@@ -450,6 +633,36 @@ INSERT INTO `roles` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sizes`
+--
+
+CREATE TABLE `sizes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sizes`
+--
+
+INSERT INTO `sizes` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 'S', 's', '2020-08-05 17:45:08', '2020-08-05 17:45:08'),
+(2, 'M', 'm', '2020-08-05 17:45:15', '2020-08-05 17:45:15'),
+(3, 'L', 'l', '2020-08-05 17:45:20', '2020-08-05 17:45:20'),
+(4, 'XL', 'xl', '2020-08-05 17:45:26', '2020-08-05 17:45:26'),
+(5, 'XXL', 'xxl', '2020-08-05 17:45:33', '2020-08-05 17:45:33'),
+(6, 'XXXL', 'xxxl', '2020-08-05 17:45:39', '2020-08-05 17:45:39'),
+(7, '7', '7', '2020-08-05 17:45:44', '2020-08-05 17:45:44'),
+(8, '8', '8', '2020-08-05 17:45:49', '2020-08-05 17:45:49'),
+(9, '9', '9', '2020-08-05 17:45:54', '2020-08-05 17:45:54'),
+(10, '10', '10', '2020-08-05 17:45:58', '2020-08-05 17:45:58');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sub_categories`
 --
 
@@ -474,6 +687,57 @@ INSERT INTO `sub_categories` (`id`, `name`, `slug`, `description`, `image`, `sta
 (3, 'Watch', 'watch', NULL, NULL, 1, '2020-08-03 10:19:58', '2020-08-03 10:19:58'),
 (4, 'Accessories', 'accessories', NULL, NULL, 1, '2020-08-03 10:19:58', '2020-08-03 10:19:58'),
 (5, 'Data Storage', 'data-storage', NULL, NULL, 1, '2020-08-03 10:19:58', '2020-08-03 10:19:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suppliers`
+--
+
+CREATE TABLE `suppliers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `website` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `suppliers`
+--
+
+INSERT INTO `suppliers` (`id`, `name`, `slug`, `email`, `website`, `phone_no`, `address`, `image`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Christen Warren', 'christen-warren', 'xabyv@mailinator.com', 'https://www.fulolyzefej.co.uk', '+1 (671) 298-2261', 'Voluptatibus sapient', '05082020061442.gif', 1, '2020-08-05 12:14:42', '2020-08-05 12:14:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `units`
+--
+
+CREATE TABLE `units` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `units`
+--
+
+INSERT INTO `units` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 'Kg', 'kg', '2020-08-05 18:16:04', '2020-08-05 18:16:04'),
+(2, 'L', 'l', '2020-08-05 18:16:10', '2020-08-05 18:16:10'),
+(3, 'ml', 'ml', '2020-08-05 18:16:16', '2020-08-05 18:16:16'),
+(4, 'Piece', 'piece', '2020-08-05 18:16:23', '2020-08-05 18:16:23');
 
 -- --------------------------------------------------------
 
@@ -510,6 +774,12 @@ ALTER TABLE `admin_role`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -531,6 +801,12 @@ ALTER TABLE `child_sub_categories`
 -- Indexes for table `child_sub_category_sub_category`
 --
 ALTER TABLE `child_sub_category_sub_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `colors`
+--
+ALTER TABLE `colors`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -570,9 +846,27 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sizes`
+--
+ALTER TABLE `sizes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sub_categories`
 --
 ALTER TABLE `sub_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `suppliers`
+--
+ALTER TABLE `suppliers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `units`
+--
+ALTER TABLE `units`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -596,7 +890,13 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `admin_role`
 --
 ALTER TABLE `admin_role`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -614,13 +914,19 @@ ALTER TABLE `category_sub_category`
 -- AUTO_INCREMENT for table `child_sub_categories`
 --
 ALTER TABLE `child_sub_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `child_sub_category_sub_category`
 --
 ALTER TABLE `child_sub_category_sub_category`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `colors`
+--
+ALTER TABLE `colors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -632,19 +938,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `permission_role`
 --
 ALTER TABLE `permission_role`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=205;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -653,10 +959,28 @@ ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `sizes`
+--
+ALTER TABLE `sizes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `sub_categories`
 --
 ALTER TABLE `sub_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `suppliers`
+--
+ALTER TABLE `suppliers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `units`
+--
+ALTER TABLE `units`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
