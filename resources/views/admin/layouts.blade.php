@@ -14,6 +14,8 @@
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.bootstrap4.min.css">
+    <!-- jQuery UI theme -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
     <!-- Select2 CSS -->
     <link rel="stylesheet" href="{{ asset('backend/plugins/select2/select2.min.css') }}">
     <!-- Custom CSS -->
@@ -97,6 +99,7 @@
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.colVis.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 <script src="{{ asset('backend/plugins/select2/select2.min.js') }}"></script>
 <!--Custom JavaScript -->
 <script src="{{ asset('backend/js/custom.min.js')}}"></script>
@@ -144,6 +147,10 @@
     //         $select2.trigger('change');
     //     });
     // });
+    $( function() {
+        $( "#from_date" ).datepicker({ dateFormat:('yy-mm-dd')});
+        $( "#to_date" ).datepicker({ dateFormat:('yy-mm-dd')});
+    } );
 
 </script>
 </body>

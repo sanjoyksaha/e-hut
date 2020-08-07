@@ -97,12 +97,12 @@
                 @endcan
 {{--                Supplier End--}}
 {{--                Settings Management Start--}}
-                <li class="sidebar-item {{ Request::is('admin/size*') ? 'active' : '' }}{{ Request::is('admin/color*') ? 'active' : '' }}{{ Request::is('admin/unit*') ? 'active' : '' }} {{ Request::is('admin/size*') ? 'selected' : '' }}{{ Request::is('admin/color*') ? 'selected' : '' }}{{ Request::is('admin/unit*') ? 'selected' : '' }}">
+                <li class="sidebar-item {{ Request::is('admin/size*') ? 'active' : '' }}{{ Request::is('admin/color*') ? 'active' : '' }}{{ Request::is('admin/unit*') ? 'active' : '' }}{{ Request::is('admin/currency*') ? 'active' : '' }}{{ Request::is('admin/coupon*') ? 'active' : '' }} {{ Request::is('admin/size*') ? 'selected' : '' }}{{ Request::is('admin/color*') ? 'selected' : '' }}{{ Request::is('admin/unit*') ? 'selected' : '' }}{{ Request::is('admin/currency*') ? 'selected' : '' }}{{ Request::is('admin/coupon*') ? 'selected' : '' }}">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                         <i class="mdi mdi-settings"></i>
                         <span class="hide-menu">Settings </span>
                     </a>
-                    <ul aria-expanded="false" class="collapse  first-level {{ Request::is('admin/size*') ? 'in' : '' }}{{ Request::is('admin/color*') ? 'in' : '' }}{{ Request::is('admin/unit*') ? 'in' : '' }}">
+                    <ul aria-expanded="false" class="collapse  first-level {{ Request::is('admin/size*') ? 'in' : '' }}{{ Request::is('admin/color*') ? 'in' : '' }}{{ Request::is('admin/unit*') ? 'in' : '' }}{{ Request::is('admin/currency*') ? 'in' : '' }}{{ Request::is('admin/coupon*') ? 'in' : '' }}">
                         @can('size-access')
                             <li class="sidebar-item {{ Request::is('admin/size*') ? 'active' : '' }}">
                                 <a href="{{ route('admin.size.index') }}" class="sidebar-link">
@@ -121,6 +121,20 @@
                             <li class="sidebar-item {{ Request::is('admin/unit*') ? 'active' : '' }}">
                                 <a href="{{ route('admin.unit.index') }}" class="sidebar-link">
                                     <span class="hide-menu">Unit</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('unit-access')
+                            <li class="sidebar-item {{ Request::is('admin/currency*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.currency.index') }}" class="sidebar-link">
+                                    <span class="hide-menu">Currency</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('coupon-access')
+                            <li class="sidebar-item {{ Request::is('admin/coupon*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.coupon.index') }}" class="sidebar-link">
+                                    <span class="hide-menu">Coupon</span>
                                 </a>
                             </li>
                         @endcan

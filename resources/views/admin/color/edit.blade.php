@@ -45,7 +45,7 @@
                                 <div class="form-group row">
                                     <label for="name" class="col-sm-3 text-right control-label col-form-label">Color Name <sup class="text-danger">*</sup></label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Child Sub Category Name" value="{{ old('name') ?? $color->name }}">
+                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Color Name" value="{{ old('name') ?? $color->name }}">
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

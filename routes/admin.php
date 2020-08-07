@@ -66,5 +66,17 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin',  'namespace' => 'Admin'], f
         // Route for Color
         Route::resource('/unit', 'UnitController');
         Route::DELETE('/unit-massDelete', 'UnitController@massDelete');
+
+        // Routes for Currency
+        Route::resource('/currency', 'CurrencyController');
+        Route::DELETE('/currency-massDelete', 'CurrencyController@massDelete');
+        Route::post('/currency/active/{currency}', 'CurrencyController@active')->name('currency.active');
+        Route::post('/currency/inactive/{currency}', 'CurrencyController@inactive')->name('currency.inactive');
+
+        // Routes for Coupon
+        Route::resource('/coupon', 'CouponController');
+        Route::DELETE('/coupon-massDelete', 'CouponController@massDelete');
+        Route::post('/coupon/active/{coupon}', 'CouponController@active')->name('coupon.active');
+        Route::post('/coupon/inactive/{coupon}', 'CouponController@inactive')->name('coupon.inactive');
     });
 });
